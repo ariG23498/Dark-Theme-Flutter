@@ -27,4 +27,4 @@ The two sample pages are well commented.
 
 Hoping to see a lot of contributions in the project. `Issues` are welcome too. Star :star: the Repository if it helped you. 
 
-And do not forget to tag me in [@Ari_R_G](https://twitter.com/Ari_R_G) in Twitter with your applications made with this template.
+And do not forget to tag me in [@ariG23498](https://twitter.com/ariG23498) in Twitter with your applications made with this template.
