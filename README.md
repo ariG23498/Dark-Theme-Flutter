@@ -2,6 +2,11 @@
 
 A Flutter Application that is built to serve it's only purpose to serve as a template for `DARK THEME`.
 
+## Inspiration:
+[Pawan Kumar's DevFest Application](https://www.youtube.com/watch?v=gw272X66qvU&list=PLR2qQy0Zxs_Vju3tKnYgzbAhywHHPuDjQ)<br>
+His source code is open sourced as well, go [here](https://github.com/iampawan/DevfestTutorialApp/tree/dev%23ch2) to send him some love.<br>
+[Pawan Kumar](https://twitter.com/imthepk)
+
 ### Usage
 
 * Clone the repository
