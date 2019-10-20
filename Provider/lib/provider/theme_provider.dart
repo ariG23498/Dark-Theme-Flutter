@@ -28,7 +28,7 @@ class ThemeProvider with ChangeNotifier {
       _theme = appDarkTheme;
     }
     isDarkTheme = !isDarkTheme;
-    notifyListeners(); // * Notify all widgets depending on this model to rebuild
+    notifyListeners(); // * Notify all widgets depending on this provider to rebuild
     updatePrefs(); // * Save theme configuration
   }
 

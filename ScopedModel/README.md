@@ -1,16 +1,9 @@
 # scopedmodel_dark_theme
 
-A new Flutter project.
+The `DARK THEME` implementation using the [Scoped Model](https://pub.dev/packages/scoped_model) package.
 
-## Getting Started
+### Trouble wrapping your head around?
 
-This project is a starting point for a Flutter application.
+* [This](https://www.youtube.com/watch?v=-MCeWP3rgI0) video by *Tensor Programming*, or [this](https://www.youtube.com/watch?v=j-27MZwRbFw) by *MTechViral* would help.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* If you are new to State management in Flutter, **Inherited Widgets** would be a great place to start (The video by *MTechViral* will also help here).

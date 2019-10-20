@@ -1,16 +1,9 @@
 # provider_dark_theme
 
-A new Flutter project.
+The `DARK THEME` implementation using the [Provider](https://pub.dev/packages/provider) package.
 
-## Getting Started
+### Trouble wrapping your head around?
 
-This project is a starting point for a Flutter application.
+* Refer to [this](https://www.youtube.com/watch?v=azaFOc5ymtA&t=1074s) video by *Tensor Programming*. Although the video is of 2 hours, he builds the same app within the **first 15 minutes**.
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* If you are new to State management in Flutter, **Inherited Widgets** and **Scoped Model** would be a great place to start.
