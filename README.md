@@ -38,8 +38,6 @@ All you need to do is, modify `home_page.dart` and `another_page.dart` according
 
 The two sample pages are well commented for the purpose of the application.
 
-`ConfigBloc().darkModeOn ? <Do something in dark theme> : <Do something is light theme>`
-
 ### Getting Started with Dark Mode and State Management
 
 Implementing `DARK MODE` is one of the ways of using state management in Flutter. You can read more about it [here](https://flutter.dev/docs/development/data-and-backend/state-mgmt/intro).
