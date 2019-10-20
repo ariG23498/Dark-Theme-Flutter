@@ -21,7 +21,8 @@ class AnotherPage extends StatelessWidget {
                     : FontAwesomeIcons.solidLightbulb,
                 size: 18,
               ),
-              onPressed: () => model.toggleTheme(),
+              onPressed: () => model
+                  .toggleTheme(), // * change theme here, implement onPressed elsewhere like this wrapped in 'ScopedModelDescendant'
             ),
           )
         ],

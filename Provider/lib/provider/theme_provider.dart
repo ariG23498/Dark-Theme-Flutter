@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:scoped_model/scoped_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 SharedPreferences _userPrefs;
@@ -7,25 +6,24 @@ getPrefs() async {
   _userPrefs = await SharedPreferences.getInstance();
 }
 
-class ThemeModel extends Model {
+class ThemeProvider with ChangeNotifier {
+  ThemeData appLightTheme = ThemeData.light();
   ThemeData appDarkTheme = ThemeData.dark();
-  ThemeData applightTheme = ThemeData.light();
   // * Replace 'ThemeData.dark()' and 'ThemeData.light()' to your custom made dark/light themes
 
   //* This boolean determines the theme
   bool isDarkTheme = _userPrefs.getBool('isDarkTheme') ?? false;
   ThemeData _theme;
 
-  ThemeModel() {
-    _theme = (isDarkTheme) ? appDarkTheme : applightTheme;
+  ThemeProvider() {
+    _theme = (isDarkTheme) ? appDarkTheme : appLightTheme;
   }
-
   ThemeData get getTheme => _theme;
 
-  void toggleTheme() {
+  toggleTheme() {
     // * self explanatory, also inverts boolean
     if (isDarkTheme) {
-      _theme = applightTheme;
+      _theme = appLightTheme;
     } else {
       _theme = appDarkTheme;
     }
