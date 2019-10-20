@@ -1,6 +1,5 @@
 import 'package:equatable/equatable.dart';
 import 'package:meta/meta.dart';
-import 'index.dart';
 
 @immutable
 abstract class ConfigState extends Equatable {
