@@ -4,7 +4,7 @@ The `DARK THEME` implementation using the [Flutter BloC](https://pub.dev/package
 
 ### Code Syntax
 
-The line where you need to provide your theme specific implementation is
+The line where you need to provide your theme specific implementation is<br>
 `ConfigBloc().darkModeOn ? <Do something in dark theme> : <Do something is light theme>`
 
 ## Inspiration
