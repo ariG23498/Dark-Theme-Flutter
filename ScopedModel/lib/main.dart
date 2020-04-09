@@ -5,6 +5,7 @@ import 'package:scopedmodel_dark_theme/pages/home_page.dart';
 import 'package:scopedmodel_dark_theme/scopedmodel/theme_model.dart';
 
 void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   await getPrefs();
   runApp(
     ScopedModel(

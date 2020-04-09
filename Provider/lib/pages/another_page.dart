@@ -15,13 +15,17 @@ class AnotherPage extends StatelessWidget {
         actions: <Widget>[
           IconButton(
             icon: Icon(
+              // * Display appropriate icon depending on theme by listening
+              // * to changes in state
               (!Provider.of<ThemeProvider>(context).isDarkTheme)
                   ? FontAwesomeIcons.lightbulb
                   : FontAwesomeIcons.solidLightbulb,
               size: 18,
             ),
-            onPressed: () => Provider.of<ThemeProvider>(context)
-                .toggleTheme(), // * change theme here, implement onPressed elsewhere like this, or wrapped in 'Consumer' as in 'MyHomePage'
+            // * change theme here by using state handling function,
+            // * but do not listen to changes in state
+            onPressed: () => Provider.of<ThemeProvider>(context, listen: false)
+                .toggleTheme(),
           ),
         ],
       ),
