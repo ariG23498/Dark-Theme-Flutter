@@ -5,11 +5,10 @@ import 'package:dark_template/utils/prefs.dart';
 
 class ThemeBloc extends Bloc<ToggleThemeEvent, ThemeState> {
   @override
-  ThemeState get initialState => ThemeState.init();
+  ThemeState get initialState => ThemeState.init(prefs.getBool('isDarkTheme'));
 
   @override
   Stream<ThemeState> mapEventToState(ToggleThemeEvent event) async* {
     yield ThemeState(isDarkMode: !state.isDarkMode);
-    updatePrefs(!state.isDarkMode);
   }
 }

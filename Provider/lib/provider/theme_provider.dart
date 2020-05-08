@@ -1,38 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:provider_dark_theme/data/theme_state.dart';
+import 'package:provider_dark_theme/utils/prefs.dart';
 
-SharedPreferences _userPrefs;
-getPrefs() async {
-  _userPrefs = await SharedPreferences.getInstance();
-}
-
+/// Class which manages and provides the state of the Provider.
+///
+/// Contains an object of type [ThemeState] that represents the state. It is responsible
+/// for notifing the dependent widgets to rebuild whenever this object changes.
+///
+/// Uses [ChangeNotifier] as a mixin to notify dependant widgets using [notifyListeners].
 class ThemeProvider with ChangeNotifier {
-  ThemeData appLightTheme = ThemeData.light();
-  ThemeData appDarkTheme = ThemeData.dark();
-  // * Replace 'ThemeData.dark()' and 'ThemeData.light()' to your custom made dark/light themes
+  /// The state of the provider.
+  ThemeState state;
 
-  //* This boolean determines the theme
-  bool isDarkTheme = _userPrefs.getBool('isDarkTheme') ?? false;
-  ThemeData _theme;
+  ThemeProvider() : state = ThemeState.init(prefs.getBool('isDarkTheme'));
 
-  ThemeProvider() {
-    _theme = (isDarkTheme) ? appDarkTheme : appLightTheme;
-  }
-  ThemeData get getTheme => _theme;
-
-  toggleTheme() {
-    // * self explanatory, also inverts boolean
-    if (isDarkTheme) {
-      _theme = appLightTheme;
-    } else {
-      _theme = appDarkTheme;
-    }
-    isDarkTheme = !isDarkTheme;
-    notifyListeners(); // * Notify all widgets depending on this provider to rebuild
-    updatePrefs(); // * Save theme configuration
-  }
-
-  updatePrefs() async {
-    await _userPrefs.setBool('isDarkTheme', isDarkTheme);
+  /// Changes the state of the provider.
+  /// State is changed to hold a new [ThemeState] with [ThemeState.isDarkTheme] inverted
+  /// and dependent widgets are notified using [notifyListeners].
+  void toggleTheme() {
+    state = ThemeState(isDarkTheme: !state.isDarkTheme);
+    notifyListeners();
   }
 }

@@ -5,6 +5,8 @@ import 'package:provider/provider.dart';
 
 import 'package:provider_dark_theme/pages/another_page.dart';
 import 'package:provider_dark_theme/provider/theme_provider.dart';
+import 'package:provider_dark_theme/ui/themes.dart';
+import 'package:provider_dark_theme/utils/prefs.dart';
 
 // * Define this to get reference in descendant widgets through context
 class Root extends StatelessWidget {
@@ -25,7 +27,9 @@ class MyApp extends StatelessWidget {
       builder: (context, themeProvider, _) {
         return MaterialApp(
           title: 'Provider dark Theme',
-          theme: themeProvider.getTheme, //* Use the state
+          theme: themeProvider.state.isDarkTheme
+              ? buildThemeTwo()
+              : buildThemeOne(),
           home: MyHomePage(title: 'Home Page'),
         );
       },
@@ -39,38 +43,45 @@ class MyHomePage extends StatelessWidget {
   final String title;
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(title),
-        centerTitle: true,
-        actions: <Widget>[
-          // * Another consumer widget
-          Consumer<ThemeProvider>(
-            builder: (context, themeProvider, _) => IconButton(
-              icon: Icon(
-                (!themeProvider.isDarkTheme)
-                    ? FontAwesomeIcons.lightbulb
-                    : FontAwesomeIcons.solidLightbulb,
-                size: 18,
+    return WillPopScope(
+      // Upon exiting, save theme preferences
+      onWillPop: () {
+        updatePrefs(Provider.of<ThemeProvider>(context).state.isDarkTheme);
+        return Future.value(true);
+      },
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(title),
+          centerTitle: true,
+          actions: <Widget>[
+            // * Another consumer widget
+            Consumer<ThemeProvider>(
+              builder: (context, themeProvider, _) => IconButton(
+                icon: Icon(
+                  (!themeProvider.state.isDarkTheme)
+                      ? FontAwesomeIcons.lightbulb
+                      : FontAwesomeIcons.solidLightbulb,
+                  size: 18,
+                ),
+                onPressed: () => themeProvider.toggleTheme(),
+                // * change theme here by using state handling function
+                // * see './another_page.dart' for alternative implementation
               ),
-              onPressed: () => themeProvider.toggleTheme(),
-              // * change theme here by using state handling function
-              // * can also use the 'of()' function as in 'AnotherPage()'
             ),
-          ),
-        ],
-      ),
-      body: Center(
-        child: Text(
-          'Home Page',
+          ],
         ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.arrow_forward_ios),
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => AnotherPage()));
-        },
+        body: Center(
+          child: Text(
+            'Hit the bulb to change theme',
+          ),
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: Icon(Icons.arrow_forward_ios),
+          onPressed: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => AnotherPage()));
+          },
+        ),
       ),
     );
   }

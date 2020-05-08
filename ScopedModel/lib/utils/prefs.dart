@@ -15,5 +15,5 @@ SharedPreferences get prefs => _userPrefs;
 
 /// Update and save theme preference.
 updatePrefs(bool isDarkTheme) async {
-  await _userPrefs.setBool('isDarkTheme', isDarkTheme);
+    await _userPrefs.setBool('isDarkTheme', isDarkTheme);
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 
@@ -17,7 +18,7 @@ class AnotherPage extends StatelessWidget {
             icon: Icon(
               // * Display appropriate icon depending on theme by listening
               // * to changes in state
-              (!Provider.of<ThemeProvider>(context).isDarkTheme)
+              (!Provider.of<ThemeProvider>(context).state.isDarkTheme)
                   ? FontAwesomeIcons.lightbulb
                   : FontAwesomeIcons.solidLightbulb,
               size: 18,
@@ -32,7 +33,7 @@ class AnotherPage extends StatelessWidget {
       body: Container(
         child: Center(
           child: Text(
-            "Hello Another",
+            "Try quitting the app and launching it again.",
           ),
         ),
       ),

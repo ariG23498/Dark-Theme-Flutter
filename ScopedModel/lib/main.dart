@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:scoped_model/scoped_model.dart';
 
 import 'package:scopedmodel_dark_theme/pages/home_page.dart';
-import 'package:scopedmodel_dark_theme/scopedmodel/theme_model.dart';
+import 'package:scopedmodel_dark_theme/utils/prefs.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  await getPrefs();
-  runApp(
-    ScopedModel(
-      model: ThemeModel(),
-      child: MyApp(),
-    ),
-  );
+  await loadPrefs();
+  runApp(Root());
 }

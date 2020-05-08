@@ -27,7 +27,7 @@ class AnotherPage extends StatelessWidget {
       body: Container(
         child: Center(
           child: Text(
-            "Hello Another",
+            "Try quitting the app and launching it again.",
           ),
         ),
       ),

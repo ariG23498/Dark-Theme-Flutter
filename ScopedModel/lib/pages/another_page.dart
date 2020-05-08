@@ -13,24 +13,22 @@ class AnotherPage extends StatelessWidget {
         title: Text('Another Page'),
         centerTitle: true,
         actions: <Widget>[
-          ScopedModelDescendant<ThemeModel>(
-            builder: (context, _, model) => IconButton(
-              icon: Icon(
-                (!model.isDarkTheme)
-                    ? FontAwesomeIcons.lightbulb
-                    : FontAwesomeIcons.solidLightbulb,
-                size: 18,
-              ),
-              onPressed: () => model
-                  .toggleTheme(), // * change theme here, implement onPressed elsewhere like this wrapped in 'ScopedModelDescendant'
+          IconButton(
+            icon: Icon(
+              (!ScopedModel.of<ThemeModel>(context).state.isDarkTheme)
+                  ? FontAwesomeIcons.lightbulb
+                  : FontAwesomeIcons.solidLightbulb,
+              size: 18,
             ),
-          )
+            // * change theme
+            onPressed: () => ScopedModel.of<ThemeModel>(context).toggleTheme(),
+          ),
         ],
       ),
       body: Container(
         child: Center(
           child: Text(
-            "Hello Another",
+            "Try quitting the app and launching it again.",
           ),
         ),
       ),

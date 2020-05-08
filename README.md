@@ -10,33 +10,32 @@ Flutter implementations of the popular state management packages and their templ
 
 ## Inspiration
 
-Pawan Kumar's [DevFest Application](https://www.youtube.com/playlist?list=PLR2qQy0Zxs_Vju3tKnYgzbAhywHHPuDjQ), where he used *Flutter BloC*.<br>
+Pawan Kumar's([@imthepk](https://twitter.com/imthepk)) [DevFest Application](https://www.youtube.com/playlist?list=PLR2qQy0Zxs_Vju3tKnYgzbAhywHHPuDjQ), where he used *Flutter BLoC*.<br>
 
-His source code is open sourced as well, go [here](https://github.com/iampawan/DevfestTutorialApp/tree/dev%23ch2) to send him some love.<br>
-
-[Pawan Kumar](https://twitter.com/imthepk)
+The source code is open sourced as well, go [here](https://github.com/iampawan/DevfestTutorialApp/tree/dev%23ch2) to send him some love.<br>
 
 ### Usage
 
   * Clone the repository
 
-  * Choose an implementation (BloC/ Provider/ Scoped Model)
+  * Choose an implementation (BloC/Provider/Scoped Model)
 
   * Hit `flutter run` in the terminal.
 
   * In the top right corner press the `light bulb` :bulb: to change the theme of the application.
 
-    <img src="assets/Light.png" width=400>|<img src="assets/Dark.png" width=400>
+    <div id = "screenshots" align = "middle">
+        <img src = "./assets/Light.png" alt = "Home Page" width = 40%>
+        <img src = "./assets/Dark.png" alt = "Another Page" width = 40%>
+    </div>
 
-  * All you need is a `bool` to do this, meh!
+  * All you need is a `bool` to do this, meh (along with the [Shared Preferences](https://pub.dev/packages/shared_preferences) package)!
 
-  * Not just yet, go ahead and clean the cache, the app still gets rendered in its theme specified.
+  * Not just yet, go ahead and clean the cache, the app still gets rendered in its theme specified(once again, Shared Preferences doing its work).
 
 ### Where do I code?
 
-All you need to do is, modify `home_page.dart` and `another_page.dart` according to your needs (or write your own pages and keep it inside the `pages` folder).
-
-The two sample pages are well commented for the purpose of the application.
+Head to respective folders for instructions.
 
 ### Getting Started with Dark Mode and State Management
 
